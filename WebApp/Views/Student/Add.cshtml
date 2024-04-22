@@ -1,0 +1,38 @@
+﻿@model WebApp.Models.Student
+
+<form method="post" asp-action="Add">
+    <input asp-for="Id" hidden/>
+    <div class="form-group">
+        <label asp-for="FullName">Full Name</label>
+        <input asp-for="FullName" class="form-control" placeholder="Enter Your Full Name"/>
+        <span asp-validation-for="FullName"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rollno">Roll no</label>
+        <input asp-for="Rollno" class="form-control" placeholder="Enter Your Roll no." />
+        <span asp-validation-for="Rollno"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" placeholder="Enter Your Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" placeholder="Enter Your Phone Number" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn mt-2 btn-secondary" asp-action="Index">Back to List</a>
+        </div>
+
+        <div class="col-6">
+            <button class="btn mt-2 btn-primary  float-end" type="submit">Create</button>
+        </div>
+    </div>
+</form>
