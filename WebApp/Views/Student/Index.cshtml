@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<WebApp.Models.Student>
 
-<a class="btn btn-primary float-end col-1" asp-action="Add">Add</a>
+<a class="btn btn-primary float-end col-1" asp-action="AddEdit">Add</a>
 
 <table class="table table-hover text-nowrap">
     <thead>
@@ -20,7 +20,7 @@
                 <td>@items.Email</td>
                 <td>@items.PhoneNumber</td>
                 <td>
-                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@items.Id">Update</a>
+                    <a class="btn btn-success" asp-action="AddEdit" asp-route-id="@items.Id">Update</a>
                     <a class="btn btn-secondary" asp-action="Detail" asp-route-id="@items.Id">Detail</a>
                     <a class="btn btn-danger" asp-action="Remove" asp-route-id="@items.Id">Delete</a>
                 </td>

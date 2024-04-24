@@ -75,5 +75,45 @@ namespace WebApp.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult AddEdit(int id)
+        {
+            Student student = new Student();
+
+            if (id > 0)
+            {
+                student = _context.Students.FirstOrDefault(x => x.Id == id);
+            }
+
+            return View(student);
+        }
+
+        [HttpPost]
+        public IActionResult AddEdit(Student student)
+        {
+            if (student.Id == 0)
+            {
+                _context.Add(student);
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                var studentinfo = _context.Students.FirstOrDefault(x => x.Id == student.Id);
+
+                if (studentinfo != null)
+                {
+                    studentinfo.FullName = student.FullName;
+                    studentinfo.PhoneNumber = student.PhoneNumber;
+                    studentinfo.Email = student.Email;
+                    studentinfo.Rollno = student.Rollno;
+
+                    _context.Update(studentinfo);
+                    _context.SaveChanges();
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
